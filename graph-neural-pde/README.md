@@ -2,18 +2,6 @@
 
 ![Cora_animation_16](https://user-images.githubusercontent.com/5874124/143270624-265c2d01-39ca-488c-b118-b68f876dfbfa.gif)
 
-## Introduction
-
-This repository contains the source code for the publications [GRAND: Graph Neural Diffusion](https://icml.cc/virtual/2021/poster/8889) and [Beltrami Flow and Neural Diffusion on Graphs (BLEND)](https://arxiv.org/abs/2110.09443).
-These approaches treat deep learning on graphs as a continuous diffusion process and Graph Neural
-Networks (GNNs) as discretisations of an underlying PDE. In both models, the layer structure and
-topology correspond to the discretisation choices
-of temporal and spatial operators. Our approach allows a principled development of a broad new
-class of GNNs that are able to address the common plights of graph learning models such as
-depth, oversmoothing, and bottlenecks. Key to
-the success of our models are stability with respect to perturbations in the data and this is addressed for both 
-implicit and explicit discretisation schemes. We develop linear and nonlinear
-versions of GRAND, which achieve competitive results on many standard graph benchmarks. BLEND is a non-Euclidean extension of GRAND that jointly evolves the feature and positional encodings of each node providing a principled means to perform graph rewiring.
 
 ## Running the experiments
 
