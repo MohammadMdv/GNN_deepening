@@ -1,4 +1,4 @@
-# Bag of Tricks for Training Deeper Graph Neural Networks
+# GNN_deepening
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
@@ -33,6 +33,7 @@ pip install torch-geometric
 
 ```
 .
+├── graph-neural-pde
 ├── Dataloader.py
 ├── main.py
 ├── trainer.py
@@ -56,15 +57,13 @@ pip install torch-geometric
 
 #### Train Deep GCN models as your baselines
 
-To train a deep GCN model `<model>` on dataset `<dataset>` as your baseline, run:
-
+To train a deep GCN model `<model>` on dataset `<dataset>` as your baseline, just run main.py and select the model and dataset you want to train
 ```bash
-python main.py --compare_model=1 --cuda_num=0 --type_model=<model> --dataset=<dataset>
-# <model>   in  [APPNP, DAGNN, GAT, GCN, GCNII, GPRGNN, JKNet, SGC]
+# <model>   in  [APPNP, DAGNN, GAT, GCN, GCNII, GPRGNN, JKNet, SGC, GRAND]
 # <dataset> in  [Cora, Citeseer, Pubmed, ogbn-arixv, CoauthorCS, CoauthorPhysics, AmazonComputers, AmazonPhoto, TEXAS, WISCONSIN, CORNELL, ACTOR]
 ```
 
-we comprehensively explored the optimal hyperparameters for all models we implemented and train the models under the
+we comprehensively explored the optimal hyperparameters for all models we implemented and trained the models under the
 well-studied hyperparameter settings. For model-specific hyperparameter configs, please refer to `options/configs/*.yml`
 
 #### Explore different trick combinations
@@ -86,7 +85,7 @@ python main.py --compare_model=0 --cuda_num=0 --type_trick=<trick_1>+<trick_2>+.
 ```
 
 , where you can assign `type_trick` with any number of tricks. For instance, to train a `trick_comb` model
-with `Initial`, `EdgeDrop`, `BatchNorm` and `IdentityMapping` on Cora, run:
+with `Initial`, `EdgeDrop`, `BatchNorm`, and `IdentityMapping` on Cora, run:
 
 ```bash
 python main.py --compare_model=0 --cuda_num=0 --type_trick=Initial+EdgeDrop+BatchNorm+IdentityMapping --dataset=Cora
@@ -96,14 +95,14 @@ We provide two backbones `--type_model=GCN` and `--type_tricks=SGC` for trick co
 when `--type_model=SGC` and `--type_trick=IdenityMapping` co-occur, `IdentityMapping` has higher priority.
 
 ## How to Contribute
-You are welcome to make any type of contributions. Here we provide a brief guidance to add your own deep GCN models and tricks.
+You are welcome to make any type of contribution. Here we provide brief guidance to add your own deep GCN models and tricks.
 
 #### Add your own model
 Several simple steps to add your own deep GCN model `<DeepGCN>`.
 
-1. Create a python file named `<DeepGCN>.py`
+1. Create a Python file named `<DeepGCN>.py`
 2. Implement your own model as a `torch.nn.Module`, where the class name is recommended to be consistent with your filename `<DeepGCN>`
-3. Make sure the commonly-used hyperparameters is consistent with ours (listed as follows). To create any new hyperparameter, add it in `options/base_options.py`.
+3. Make sure the commonly-used hyperparameters are consistent with ours (listed as follows). To create any new hyperparameter, add it in `options/base_options.py`.
 ```
  --dim_hidden        # hidden dimension
  --num_layers        # number of GCN layers
@@ -111,12 +110,12 @@ Several simple steps to add your own deep GCN model `<DeepGCN>`.
  --lr:               # learning rate
  --weight_decay      # rate of l2 regularization
 ```
-4. Register your model in `models/__init__.py` by add the following codes:
+4. Register your model in `models/__init__.py` by adding the following codes:
 ```python
 from <DeepGCN> import <DeepGCN>
 __all__.append('<DeepGCN>')
 ```
-5. You are recommend to use `YAML` to store your dataset-specific hyperparameter configuration. Create a `YAML` file `<DeepGCN>.yml` in `options/configs` and add the hyperparameters as the following style:
+5. You are recommended to use `YAML` to store your dataset-specific hyperparameter configuration. Create a `YAML` file `<DeepGCN>.yml` in `options/configs` and add the hyperparameters as the following style:
 ```yaml
 <dataset_1>
   <hyperparameter_1> : value_1
@@ -190,16 +189,3 @@ As all implemented tricks are coupled in `tricks_comb.py` tightly, we do not rec
 - Takeaways of the best combo
 
 ![](figs/combo.png)
-
-## Citation
-if you find this repo is helpful, please cite
-```
-@misc{chen2021bag,
-      title={Bag of Tricks for Training Deeper Graph Neural Networks: A Comprehensive Benchmark Study}, 
-      author={Tianlong Chen and Kaixiong Zhou and Keyu Duan and Wenqing Zheng and Peihao Wang and Xia Hu and Zhangyang Wang},
-      year={2021},
-      eprint={2108.10521},
-      archivePrefix={arXiv},
-      primaryClass={cs.LG}
-}
-```
