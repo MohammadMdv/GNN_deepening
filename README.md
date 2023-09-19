@@ -1,14 +1,6 @@
-# Bag of Tricks for Training Deeper Graph Neural Networks: A Comprehensive Benchmark Study
+# Bag of Tricks for Training Deeper Graph Neural Networks
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
-
-Codes for [Preprint] [Bag of Tricks for Training Deeper Graph Neural Networks: A Comprehensive Benchmark Study](https://arxiv.org/pdf/2108.10521.pdf)
-
-Tianlong Chen\*, Kaixiong Zhou\*, Keyu Duan, Wenqing Zheng, Peihao Wang, Xia Hu, Zhangyang Wang
-
-## Introduction
-
-This is the first fair and reproducible benchmark dedicated to assessing the "tricks" of training deep GNNs. We categorize existing approaches, investigate their hyperparameter sensitivity, and unify the basic configuration. Comprehensive evaluations are then conducted on tens of representative graph datasets including the recent large-scale Open Graph Benchmark (OGB), with diverse deep GNN backbones. Based on synergistic studies, we discover the transferable combo of superior training tricks, that lead us to attain the new state-of-the-art results for deep GCNs, across multiple representative graph datasets.
 
 ## Requirements
 #### Installation with Conda
