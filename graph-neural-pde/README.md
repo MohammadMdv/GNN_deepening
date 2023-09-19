@@ -40,7 +40,7 @@ pip install pandas==1.3.0 -U
 ## GRAND (Graph Neural Diffusion)
 
 ### Dataset and Preprocessing
-create a root level folder
+create a root-level folder
 ```
 ./data
 ```
@@ -57,16 +57,16 @@ python run_GNN.py --dataset Cora
 
 ### Dataset and Preprocessing
 
-Create a root level 
+Create a root-level 
 ```
 ./data folder
 ``` 
 This will be automatically populated the first time each experiment is run.
-create a root level folder
+create a root-level folder
 ```
 ./data/pos_encodings
 ```
-DIGL positional encodings will build automatically and populate this folder, but DeepWalk or Hyperbollic positional encodings will need generating using the relevant generator scripts or downloading. We include a shell script (warning: it's slow) to generate them: 
+DIGL positional encodings will build automatically and populate this folder, but DeepWalk or Hyperbollic positional encodings will need to be generated using the relevant generator scripts or downloading. We include a shell script (warning: it's slow) to generate them: 
 ```
 sh deepwalk_gen.sh
 ```
@@ -101,9 +101,5 @@ Most problems installing the dependencies are caused by Cuda version mismatches 
 nvcc --version
 python -c "import torch; print(torch.__version__)"
 ```
-and then following instructions here to install pytorch geometric
+and then follow the instructions here to install pytorch geometric
 https://pytorch-geometric.readthedocs.io/en/latest/notes/installation.html
-
-## Security Issues?
-Please report sensitive security issues via Twitter's bug-bounty program (https://hackerone.com/twitter) rather than GitHub.
-
