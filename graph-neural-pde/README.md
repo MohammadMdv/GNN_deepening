@@ -104,30 +104,6 @@ python -c "import torch; print(torch.__version__)"
 and then following instructions here to install pytorch geometric
 https://pytorch-geometric.readthedocs.io/en/latest/notes/installation.html
 
-## Cite us
-If you found this work useful, please consider citing our papers
-```
-@article
-{chamberlain2021grand,
-  title={GRAND: Graph Neural Diffusion},
-  author={Chamberlain, Benjamin Paul and Rowbottom, James and Goronova, Maria and Webb, Stefan and Rossi, 
-  Emanuele and Bronstein, Michael M},
-  journal={Proceedings of the 38th International Conference on Machine Learning,
-               (ICML) 2021, 18-24 July 2021, Virtual Event},
-  year={2021}
-}
-```
-and
-```
-@article
-{chamberlain2021blend,
-  title={Beltrami Flow and Neural Diffusion on Graphs},
-  author={Chamberlain, Benjamin Paul and Rowbottom, James and Eynard, Davide and Di Giovanni, Francesco and Dong Xiaowen and Bronstein, Michael M},
-  journal={Proceedings of the Thirty-fifth Conference on Neural Information Processing Systems (NeurIPS) 2021, Virtual Event},
-  year={2021}
-}
-```
-
 ## Security Issues?
 Please report sensitive security issues via Twitter's bug-bounty program (https://hackerone.com/twitter) rather than GitHub.
 
